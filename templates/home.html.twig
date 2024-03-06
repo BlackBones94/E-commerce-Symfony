@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    Acceuil
+{% endblock %}
+
+{% block body %}
+        <h1>Nos produits phares</h1>
+        <div class="row">
+            {% for p in products %}       
+            <div class="col">
+                <div class="card">
+                    <img src="{{ p.mainPicture }}" class="img-fluid" alt="Image produit">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ p.name }} ({{ p.price / 100}} &euro;)</h4>
+
+                        <span class="badge badge-info ">
+                            {{p.category.name}}
+                        </span>
+                        <p class="card-text">{{ p.shortDescription }}</p>
+                        <a href="#" class="btn btn-primary btn-sm">Détails</a>
+                        <a href="#" class="btn btn-success btn-sm">Ajouter</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <h2>Un service irreprochable</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum suscipit tempore dolorum dignissimos a debitis!</p>
+
+        <div class="row">
+            {% include "shared/_assurance.html.twig" with {
+                'color': 'primary',
+                'icone' : 'fas fa-truck',
+                'text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, assumenda nisi repellat illo recusandae nobis.'
+            } %}
+            {% include "shared/_assurance.html.twig" with {
+                'color': 'success',
+                'icone' : 'fas fa-check',
+                'text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, assumenda nisi repellat illo recusandae nobis.'
+            } %}
+            {% include "shared/_assurance.html.twig" with {
+                'color': 'warning',
+                'icone' : 'fas fa-lock',
+                'text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, assumenda nisi repellat illo recusandae nobis.'
+            } %}
+        </div>
+    </div>
+{% endblock %}
