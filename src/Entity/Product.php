@@ -53,7 +53,7 @@ class Product
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="La description courte est obligatoire")
-     * @Assert\Length(min=20, minMessage="La description est trop courte elle doit faire 20 caractéres)
+     * @Assert\Length(min=20, minMessage="La description est trop courte elle doit faire 20 caractéres")
      */
     private $shortDescription;
 
