@@ -19,6 +19,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Callback;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProductType extends AbstractType
 {
@@ -29,7 +30,8 @@ class ProductType extends AbstractType
                 'label' => 'Nom du produit',
                 'attr'  => [
                     'placeholder' => 'Tapez le nom du produit'
-                ]
+                ],
+                'required' => false,
             ])
             ->add('shortDescription', TextareaType::class, [
                 'label' => 'Description courte',
