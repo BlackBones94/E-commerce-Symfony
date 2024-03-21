@@ -7,4 +7,17 @@
 
 {% block body %}
     <h1>Modifier {{category.name}}</h1>
+
+    {{form_start(formView)}}
+
+    {{form_widget(formView)}}
+
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-save"></i>
+        Modifier
+    </button>
+
+    {{form_end(formView)}}
 {% endblock %}
+
+
