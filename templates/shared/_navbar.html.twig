@@ -8,25 +8,30 @@
 			<ul class="navbar-nav me-auto">
 				{% for c in categoryRepository.findAll() %}
 					<li class="nav-item">
-						<a href="#" class="nav-link">{{c.name}}</a>
+						<a href="{{ path('product_category', {'slug' : c.slug}) }}" class="nav-link">{{c.name}}</a>
 					</li>
 				{% endfor %}
 			</ul>
 			<ul class="navbar-nav">
-
-			{% if app.user %}
-			 	<li class="nav-item">
-                    <a href="{{ path('security_logout') }}" class="btn btn-danger">Logout</a>
-                </li>
-			
-			{% else %}
 				<li class="nav-item">
-					<a href="#" class="nav-link">Inscription</a>
+					<a href="{{path('cart_show')}}" class="nav-link">
+					<i class="fas fa-shopping-cart"></i>
+					Panier ({{ cartService.total }})
+					</a>
 				</li>
-                <li class="nav-item">
-                    <a href="{{ path('security_login') }}" class="btn btn-success">Login</a>
-                </li>
-            {% endif %}
+				{% if app.user %}
+					<li class="nav-item">
+						<a href="{{ path('security_logout') }}" class="btn btn-danger">Logout</a>
+					</li>
+
+				{% else %}
+					<li class="nav-item">
+						<a href="#" class="nav-link">Inscription</a>
+					</li>
+					<li class="nav-item">
+						<a href="{{ path('security_login') }}" class="btn btn-success">Login</a>
+					</li>
+				{% endif %}
 			</ul>
 		</div>
 	</div>
