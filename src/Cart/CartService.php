@@ -23,6 +23,10 @@ class CartService{
     protected function saveCart(array $cart){
         $this->session->set('cart' , $cart);
     }
+
+    public function empty(){
+        $this->saveCart([]);
+    }
     
     public function add(int $id){
         $cart = $this->getCart();
@@ -80,6 +84,10 @@ class CartService{
         return $total;
     }
 
+
+    /**
+     * @return CartItem[]
+     */
     public function getDetailedCartItems() : array 
     {
         $detailedCart = [];
